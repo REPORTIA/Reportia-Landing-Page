@@ -1,0 +1,134 @@
+.map-section {
+  background-color: var(--color-bg);
+  padding-bottom: 0;
+}
+
+.map-section .section-subtitle {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.map-section__map-wrapper {
+  margin-top: 0;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.map-section__map {
+  width: 100%;
+  height: 420px;
+  background: linear-gradient(
+    135deg,
+    #c8d5b9 0%,
+    #8fc0a9 20%,
+    #68b0ab 35%,
+    #4a9f8f 50%,
+    #a8c5b5 65%,
+    #7fb5a3 80%,
+    #5a9e8f 100%
+  );
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+/* Simulate a realistic satellite/map look */
+.map-section__map::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60px 40px at 30% 60%, rgba(100, 120, 80, 0.4) 0%, transparent 100%),
+    radial-gradient(ellipse 120px 80px at 70% 30%, rgba(60, 100, 80, 0.35) 0%, transparent 100%),
+    radial-gradient(ellipse 80px 60px at 15% 20%, rgba(80, 130, 100, 0.3) 0%, transparent 100%),
+    radial-gradient(ellipse 200px 100px at 85% 70%, rgba(40, 80, 60, 0.25) 0%, transparent 100%),
+    linear-gradient(45deg, rgba(0,0,0,0.05) 0%, transparent 50%);
+}
+
+/* Road network simulation */
+.map-section__map::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(90deg, rgba(220, 210, 190, 0.5) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(220, 210, 190, 0.5) 1px, transparent 1px),
+    linear-gradient(45deg, rgba(200, 190, 170, 0.3) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(200, 190, 170, 0.3) 1px, transparent 1px);
+  background-size: 80px 80px, 80px 80px, 120px 120px, 120px 120px;
+}
+
+.map-section__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+/* Map markers */
+.map-section__marker {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.map-section__marker-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #22c55e;
+  border: 2.5px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.map-section__marker-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(34, 197, 94, 0.25);
+  animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+/* Filter chip */
+.map-section__chip {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-text);
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+
+.map-section__chip:hover {
+  box-shadow: var(--shadow-elevated);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .map-section__map {
+    height: 280px;
+  }
+}

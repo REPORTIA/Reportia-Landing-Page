@@ -1,0 +1,150 @@
+.download-app {
+  background-color: var(--color-bg);
+}
+
+.download-app__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+}
+
+/* Left content */
+.download-app__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.download-app__title {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.download-app__description {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+.download-app__buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.download-app__store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  padding: 11px 20px;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+.download-app__store-btn:hover {
+  background-color: var(--color-primary-darker);
+  transform: translateY(-1px);
+}
+
+.download-app__store-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.download-app__store-label {
+  font-size: 0.6875rem;
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+.download-app__store-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Right phone visual */
+.download-app__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.download-app__phone {
+  position: relative;
+  width: 260px;
+}
+
+.download-app__phone-body {
+  width: 240px;
+  height: 500px;
+  background-color: #1a1a2e;
+  border-radius: 40px;
+  padding: 14px;
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255,255,255,0.08);
+  margin: 0 auto;
+  position: relative;
+}
+
+.download-app__phone-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background: linear-gradient(160deg, #f8f9fa 0%, #e9ecef 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Simulated hand holding the phone */
+.download-app__phone-hand {
+  position: absolute;
+  bottom: -30px;
+  left: -20px;
+  right: -20px;
+  height: 160px;
+  overflow: hidden;
+}
+
+.download-app__hand-shape {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #d4a98a 0%, #c49078 40%, #b07860 100%);
+  border-radius: 50% 50% 0 0 / 80% 80% 0 0;
+  box-shadow: 0 -10px 30px rgba(0,0,0,0.15);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .download-app__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .download-app__content {
+    align-items: center;
+  }
+
+  .download-app__description {
+    max-width: 100%;
+  }
+
+  .download-app__buttons {
+    justify-content: center;
+  }
+
+  .download-app__phone-body {
+    width: 200px;
+    height: 400px;
+  }
+}

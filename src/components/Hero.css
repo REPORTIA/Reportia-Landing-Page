@@ -1,0 +1,186 @@
+.hero {
+  background-color: var(--color-bg-subtle);
+  padding: 72px 24px 80px;
+  overflow: hidden;
+}
+
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+  min-height: 480px;
+}
+
+/* Left content */
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero__badge {
+  display: inline-block;
+  width: fit-content;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  border: 1px solid #bfdbfe;
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+}
+
+.hero__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.hero__description {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 440px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+/* Right visual */
+.hero__visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.hero__phone-wrapper {
+  position: relative;
+  width: 280px;
+}
+
+.hero__phone {
+  width: 260px;
+  height: 520px;
+  background-color: #1a1a2e;
+  border-radius: 36px;
+  padding: 12px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255,255,255,0.08);
+  margin: 0 auto;
+}
+
+.hero__phone-screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.hero__phone-gradient {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(160deg, #fca5a5 0%, #93c5fd 50%, #a5f3fc 100%);
+}
+
+/* Floating resolved badge */
+.hero__badge-floating {
+  position: absolute;
+  bottom: 40px;
+  right: -20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  box-shadow: var(--shadow-elevated);
+  white-space: nowrap;
+}
+
+.hero__badge-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background-color: #22c55e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero__badge-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero__badge-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.hero__badge-time {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+
+  .hero__content {
+    align-items: center;
+  }
+
+  .hero__description {
+    max-width: 100%;
+  }
+
+  .hero__actions {
+    justify-content: center;
+  }
+
+  .hero__phone-wrapper {
+    width: 240px;
+  }
+
+  .hero__phone {
+    width: 220px;
+    height: 440px;
+  }
+
+  .hero__badge-floating {
+    right: 0;
+    bottom: -20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 48px 20px 64px;
+  }
+
+  .hero__phone {
+    width: 200px;
+    height: 400px;
+  }
+
+  .hero__badge-floating {
+    right: 10px;
+    bottom: -30px;
+  }
+}
