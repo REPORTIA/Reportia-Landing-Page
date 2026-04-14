@@ -25,7 +25,11 @@ export default function Hero() {
           <div className="hero__phone-wrapper">
             <div className="hero__phone">
               <div className="hero__phone-screen">
-                <div className="hero__phone-gradient" />
+                <img
+                  src="https://images.unsplash.com/photo-1722834228772-01d16b9bf83b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBwaG9uZSUyMHNjcmVlbiUyMGludGVyZmFjZSUyMHdoaXRlfGVufDF8fHx8MTc3NTY2NTczNnww&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="App Reportia"
+                  className="hero__phone-img"
+                />
               </div>
             </div>
             {/* Floating badge */}

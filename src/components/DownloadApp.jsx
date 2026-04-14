@@ -38,14 +38,12 @@ export default function DownloadApp() {
 
         {/* Right phone visual */}
         <div className="download-app__visual">
-          <div className="download-app__phone">
-            <div className="download-app__phone-body">
-              <div className="download-app__phone-screen">
-                <div className="download-app__phone-hand" aria-hidden="true">
-                  <div className="download-app__hand-shape" />
-                </div>
-              </div>
-            </div>
+          <div className="download-app__phone-frame">
+            <img
+              src="https://images.unsplash.com/photo-1629697776809-f37ceac39e77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydHBob25lJTIwYXBwJTIwbW9ja3VwJTIwaGFuZHxlbnwxfHx8fDE3NzU1Njg0NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="App Reportia Download"
+              className="download-app__phone-img"
+            />
           </div>
         </div>
       </div>

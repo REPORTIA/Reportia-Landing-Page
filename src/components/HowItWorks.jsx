@@ -53,9 +53,6 @@ export default function HowItWorks() {
               <div className="how-it-works__step">
                 <div className="how-it-works__icon-wrapper">
                   <div className="how-it-works__icon">{step.icon}</div>
-                  {index < steps.length - 1 && (
-                    <div className="how-it-works__connector" aria-hidden="true" />
-                  )}
                 </div>
                 <h3 className="how-it-works__step-title">{step.title}</h3>
                 <p className="how-it-works__step-desc">{step.description}</p>
