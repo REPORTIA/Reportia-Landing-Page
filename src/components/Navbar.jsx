@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './Navbar.css'
+import logo from '../assets/Reportia_Logo-Without_Bg.png'
 
 const navLinks = [
   { label: 'Cómo funciona', href: '#como-funciona' },
@@ -14,7 +15,9 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar__inner container">
-        <a href="#" className="navbar__logo">REPORTIA</a>
+        <a href="#" className="navbar__logo">
+          <img src={logo} alt="Reportia" className="navbar__logo-img" />
+        </a>
 
         <button
           className="navbar__hamburger"

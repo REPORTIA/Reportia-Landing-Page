@@ -19,94 +19,15 @@
 .map-section__map {
   width: 100%;
   height: 420px;
-  background: linear-gradient(
-    135deg,
-    #c8d5b9 0%,
-    #8fc0a9 20%,
-    #68b0ab 35%,
-    #4a9f8f 50%,
-    #a8c5b5 65%,
-    #7fb5a3 80%,
-    #5a9e8f 100%
-  );
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+  border-radius: var(--radius-lg, 12px);
 }
 
-/* Simulate a realistic satellite/map look */
-.map-section__map::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60px 40px at 30% 60%, rgba(100, 120, 80, 0.4) 0%, transparent 100%),
-    radial-gradient(ellipse 120px 80px at 70% 30%, rgba(60, 100, 80, 0.35) 0%, transparent 100%),
-    radial-gradient(ellipse 80px 60px at 15% 20%, rgba(80, 130, 100, 0.3) 0%, transparent 100%),
-    radial-gradient(ellipse 200px 100px at 85% 70%, rgba(40, 80, 60, 0.25) 0%, transparent 100%),
-    linear-gradient(45deg, rgba(0,0,0,0.05) 0%, transparent 50%);
-}
-
-/* Road network simulation */
-.map-section__map::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(90deg, rgba(220, 210, 190, 0.5) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(220, 210, 190, 0.5) 1px, transparent 1px),
-    linear-gradient(45deg, rgba(200, 190, 170, 0.3) 1px, transparent 1px),
-    linear-gradient(-45deg, rgba(200, 190, 170, 0.3) 1px, transparent 1px);
-  background-size: 80px 80px, 80px 80px, 120px 120px, 120px 120px;
-}
-
-.map-section__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-}
-
-/* Map markers */
-.map-section__marker {
-  position: absolute;
-  transform: translate(-50%, -50%);
-}
-
-.map-section__marker-dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background-color: #22c55e;
-  border: 2.5px solid white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 1;
-}
-
-.map-section__marker-pulse {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: rgba(34, 197, 94, 0.25);
-  animation: pulse 2s ease-out infinite;
-}
-
-@keyframes pulse {
-  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
-}
-
-/* Filter chip */
+/* Filter chip — positioned over the map */
 .map-section__chip {
   position: absolute;
   top: 16px;
   right: 16px;
-  z-index: 10;
+  z-index: 1000;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -126,7 +47,37 @@
   box-shadow: var(--shadow-elevated);
 }
 
-/* Responsive */
+/* Leaflet zoom controls styling */
+.map-section__map .leaflet-control-zoom {
+  border: none;
+  box-shadow: var(--shadow-card);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 16px;
+  margin-right: 16px;
+}
+
+.map-section__map .leaflet-control-zoom-in,
+.map-section__map .leaflet-control-zoom-out {
+  width: 32px !important;
+  height: 32px !important;
+  line-height: 32px !important;
+  font-size: 16px;
+  color: var(--color-text) !important;
+  background-color: var(--color-white) !important;
+  border: none !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.map-section__map .leaflet-control-zoom-out {
+  border-bottom: none !important;
+}
+
+.map-section__map .leaflet-control-zoom-in:hover,
+.map-section__map .leaflet-control-zoom-out:hover {
+  background-color: #f1f5f9 !important;
+}
+
 @media (max-width: 768px) {
   .map-section__map {
     height: 280px;
