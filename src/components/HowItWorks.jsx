@@ -12,31 +12,40 @@ const steps = [
         <polyline points="10 9 9 9 8 9" />
       </svg>
     ),
-    title: 'Reporta la incidencia',
-    description: 'Toma una foto, describe el problema y envía tu reporte desde la app o la web.',
+    title: 'Ciudadano crea reporte',
+    description: 'Toma una foto, describe la incidencia y envía tu reporte desde la app o la web.',
   },
   {
     id: 2,
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-        <line x1="8" y1="21" x2="16" y2="21" />
-        <line x1="12" y1="17" x2="12" y2="21" />
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
       </svg>
     ),
-    title: 'La municipalidad la atiende',
-    description: 'El área responsable recibe tu reporte y coordina la solución.',
+    title: 'Voluntario toma acción',
+    description: 'Un voluntario visualiza la oferta de reporte y decide si acepta gestionarlo.',
   },
   {
     id: 3,
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-        <polyline points="22 4 12 14.01 9 11.01" />
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+        <circle cx="8.5" cy="8.5" r="1.5" />
+        <polyline points="21 15 16 10 5 21" />
       </svg>
     ),
-    title: 'Recibe la resolución',
-    description: 'Te notificamos cuando tu reporte ha sido atendido y resuelto.',
+    title: 'Gestión y validación',
+    description: 'El voluntario gestiona y envía evidencia fotográfica al supervisor para su validación (acepta o rechaza).',
+  },
+  {
+    id: 4,
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </svg>
+    ),
+    title: 'Ganan puntos',
+    description: 'Si se acepta el reporte, tanto el ciudadano como el voluntario ganan puntos del sistema de ludificación.',
   },
 ]
 
@@ -45,7 +54,7 @@ export default function HowItWorks() {
     <section id="como-funciona" className="how-it-works section">
       <div className="container">
         <h2 className="section-title">Cómo funciona</h2>
-        <p className="section-subtitle">Tres pasos simples para mejorar tu ciudad</p>
+        <p className="section-subtitle">Cuatro pasos simples para mejorar tu ciudad</p>
 
         <div className="how-it-works__steps">
           {steps.map((step, index) => (

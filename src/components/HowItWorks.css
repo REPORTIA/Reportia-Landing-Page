@@ -4,7 +4,7 @@
 
 .how-it-works__steps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 32px;
   position: relative;
 }
@@ -47,15 +47,15 @@
   z-index: 1;
 }
 
-/* Single horizontal connector line spanning all 3 icons */
+/* Single horizontal connector line spanning all 4 icons */
 .how-it-works__steps::before {
   content: '';
   position: absolute;
   height: 2px;
   background-color: var(--color-primary);
   top: 36px;
-  left: calc(100% / 6);
-  right: calc(100% / 6);
+  left: calc(100% / 8);
+  right: calc(100% / 8);
   z-index: 0;
 }
 
