@@ -6,13 +6,13 @@ export default function Hero() {
       <div className="hero__inner container">
         {/* Left content */}
         <div className="hero__content">
-          <span className="hero__badge">Municipalidad Metropolitana de Lima</span>
+          <span className="hero__badge">Reportia Community</span>
           <h1 className="hero__title">
-            Reporta, la municipalidad actúa
+            Reportia, la app que une una comunidad
           </h1>
           <p className="hero__description">
             Registra incidencias en tu distrito de forma rápida y sencilla.
-            Sigue el progreso en tiempo real y contribuye a una ciudad mejor.
+            Sigue el progreso en tiempo real y contribuye a una ciudad mejor como un voluntario.
           </p>
           <div className="hero__actions">
             <a href="#" className="btn-primary">Registrarse</a>

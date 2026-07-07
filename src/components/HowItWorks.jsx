@@ -13,7 +13,7 @@ const steps = [
       </svg>
     ),
     title: 'Reporta la incidencia',
-    description: 'Toma una foto, describe el problema y envía tu reporte desde la app o la web.',
+    description: 'Toma una foto, describe el problema y envía tu reporte desde la app móvil o por Whatsapp.',
   },
   {
     id: 2,
@@ -24,8 +24,8 @@ const steps = [
         <line x1="12" y1="17" x2="12" y2="21" />
       </svg>
     ),
-    title: 'La municipalidad la atiende',
-    description: 'El área responsable recibe tu reporte y coordina la solución.',
+    title: 'Pon las manos en la cancha',
+    description: 'Un voluntario cerca de tu área tomará tu reporte.',
   },
   {
     id: 3,

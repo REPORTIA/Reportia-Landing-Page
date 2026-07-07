@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import './Stats.css'
 
 const statsData = [
-  { value: 34520, label: 'Total de reportes', formatted: '34,520' },
-  { value: 28130, label: 'Reportes resueltos', formatted: '28,130' },
-  { value: 15840, label: 'Ciudadanos registrados', formatted: '15,840' },
+  { value: 37, label: 'Total de reportes', formatted: '37' },
+  { value: 21, label: 'Reportes resueltos', formatted: '21' },
+  { value: 6, label: 'Ciudadanos registrados', formatted: '6' },
 ]
 
 function useCountUp(target, duration = 2000, active = false) {

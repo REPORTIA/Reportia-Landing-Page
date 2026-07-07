@@ -8,9 +8,9 @@ export default function Footer() {
         <div className="footer__brand">
           <span className="footer__logo">REPORTIA</span>
           <p className="footer__brand-desc">
-            Sistema centralizado de reporte ciudadano de la Municipalidad Metropolitana de Lima.
+            Plataforma de atención ciudadana colaborativa y eficaz.
           </p>
-          <span className="footer__brand-institution">Municipalidad Metropolitana de Lima</span>
+          <span className="footer__brand-institution">Reportia Community</span>
         </div>
 
         {/* Legal column */}
@@ -27,9 +27,9 @@ export default function Footer() {
 
         {/* Institutional column */}
         <div className="footer__column">
-          <h3 className="footer__heading">INSTITUCIONAL</h3>
+          <h3 className="footer__heading">OFFICE</h3>
           <address className="footer__address">
-            Municipalidad Metropolitana de Lima<br />
+            Reportia Community Office<br />
             Jirón de la Unión 300, Cercado de Lima<br />
             Lima, Perú
           </address>
@@ -40,7 +40,7 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="container">
           <p className="footer__copyright">
-            © 2026 REPORTIA — Municipalidad Metropolitana de Lima. Todos los derechos reservados.
+            © 2026 REPORTIA. Todos los derechos reservados.
           </p>
         </div>
       </div>
