@@ -12,8 +12,13 @@ const steps = [
         <polyline points="10 9 9 9 8 9" />
       </svg>
     ),
+<<<<<<< HEAD
     title: 'Ciudadano crea reporte',
     description: 'Toma una foto, describe la incidencia y envía tu reporte desde la app o la web.',
+=======
+    title: 'Reporta la incidencia',
+    description: 'Toma una foto, describe el problema y envía tu reporte desde la app móvil o por Whatsapp.',
+>>>>>>> main
   },
   {
     id: 2,
@@ -22,8 +27,13 @@ const steps = [
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
       </svg>
     ),
+<<<<<<< HEAD
     title: 'Voluntario toma acción',
     description: 'Un voluntario visualiza la oferta de reporte y decide si acepta gestionarlo.',
+=======
+    title: 'Pon las manos en la cancha',
+    description: 'Un voluntario cerca de tu área tomará tu reporte.',
+>>>>>>> main
   },
   {
     id: 3,

@@ -6,6 +6,7 @@ export default function Hero() {
       <div className="hero__inner container">
         {/* Left content */}
         <div className="hero__content">
+<<<<<<< HEAD
           <span className="hero__badge">Participación Ciudadana Activa</span>
           <h1 className="hero__title">
             Reportia, la comunidad actúa
@@ -13,6 +14,15 @@ export default function Hero() {
           <p className="hero__description">
             Registra incidencias en tu distrito y colabora con voluntarios para gestionarlas.
             Gana puntos, sube de nivel y contribuye a una ciudad mejor.
+=======
+          <span className="hero__badge">Reportia Community</span>
+          <h1 className="hero__title">
+            Reportia, la app que une una comunidad
+          </h1>
+          <p className="hero__description">
+            Registra incidencias en tu distrito de forma rápida y sencilla.
+            Sigue el progreso en tiempo real y contribuye a una ciudad mejor como un voluntario.
+>>>>>>> main
           </p>
           <div className="hero__actions">
             <a href="#" className="btn-primary">Registrarse</a>

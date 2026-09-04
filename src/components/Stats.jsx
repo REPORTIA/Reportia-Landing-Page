@@ -1,6 +1,15 @@
 import { useEffect, useRef, useState } from 'react'
 import './Stats.css'
 
+<<<<<<< HEAD
+=======
+const statsData = [
+  { value: 37, label: 'Total de reportes', formatted: '37' },
+  { value: 21, label: 'Reportes resueltos', formatted: '21' },
+  { value: 6, label: 'Ciudadanos registrados', formatted: '6' },
+]
+
+>>>>>>> main
 function useCountUp(target, duration = 2000, active = false) {
   const [count, setCount] = useState(0)
 
