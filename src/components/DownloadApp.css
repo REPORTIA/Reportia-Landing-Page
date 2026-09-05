@@ -37,10 +37,6 @@
   margin-top: 8px;
 }
 
-.download-app .sms-note {
-  margin-top: 0;
-}
-
 .download-app__stores {
   display: flex;
   justify-content: center;

@@ -6,21 +6,20 @@ export default function DownloadApp() {
       <div className="download-app__inner container">
         <h2 className="download-app__title">Tu distrito de Lima tiene algo que arreglar</h2>
         <p className="download-app__lead">
-          Crear la cuenta toma menos de un minuto y el primer reporte, tres.
+          Crea tu cuenta con tu número de celular y envía tu primer reporte hoy mismo.
         </p>
 
         <div className="download-app__actions">
           <a href="#" className="btn btn-primary btn--lg">Crear cuenta</a>
-          <a href="#" className="btn btn-secondary btn--lg">Ya tengo cuenta</a>
+          <a
+            href="https://wa.me/51923978825"
+            className="btn btn-secondary btn--lg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Reportar por WhatsApp
+          </a>
         </div>
-
-        <p className="sms-note">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <rect x="5" y="2" width="14" height="20" rx="2" />
-            <path d="M12 18h.01" />
-          </svg>
-          Te enviaremos un código por SMS para activar tu cuenta.
-        </p>
 
         <div className="download-app__stores">
           <a href="#" className="btn btn-dark download-app__store-btn">

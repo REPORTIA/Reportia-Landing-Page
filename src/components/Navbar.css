@@ -151,9 +151,4 @@
     gap: 12px;
     margin-top: 16px;
   }
-
-  .navbar__signin {
-    border: 1.5px solid var(--line);
-    color: var(--ink-700);
-  }
 }

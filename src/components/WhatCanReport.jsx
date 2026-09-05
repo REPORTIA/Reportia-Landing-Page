@@ -133,7 +133,6 @@ const EXAMPLES = {
   'Alumbrado Público': 'Postes apagados, cables sueltos',
   'Contaminación Ambiental': 'Humo, ruido, vertidos en la calle',
   'Salud Pública': 'Focos de plagas, agua estancada',
-  Otros: 'Lo que no encaje en las demás',
 }
 
 /* Respaldo si el catálogo no responde: las seis categorías base */
@@ -145,6 +144,8 @@ const FALLBACK = [
   { id: 5, name: 'Contaminación Ambiental', icon: 'AlertTriangle' },
   { id: 6, name: 'Salud Pública', icon: 'HeartPulse' },
 ]
+
+const HIDDEN = new Set(['Otros'])
 
 const WORDS = ['', 'Una', 'Dos', 'Tres', 'Cuatro', 'Cinco', 'Seis', 'Siete', 'Ocho', 'Nueve', 'Diez', 'Once', 'Doce']
 const countWord = (n) => WORDS[n] ?? String(n)
@@ -161,8 +162,9 @@ export default function WhatCanReport() {
     getCategories({ signal: controller.signal })
       .then((list) => {
         if (!Array.isArray(list)) return
-        // Solo categorías activas y con icono del vocabulario; las de prueba del backend no traen icono
-        const usable = list.filter((c) => c.isActive && c.icon)
+        // Solo categorías activas y con icono del vocabulario; las de prueba del backend no traen icono.
+        // «Otros» es el cajón de sastre de la app y no se muestra en la landing.
+        const usable = list.filter((c) => c.isActive && c.icon && !HIDDEN.has(c.name))
         if (usable.length > 0) setCategories(usable)
       })
       .catch((err) => {
@@ -178,7 +180,8 @@ export default function WhatCanReport() {
           <span className="overline">Qué reportar</span>
           <h2 className="section-title">{countWord(categories.length)} categorías, una sola app</h2>
           <p className="section-lead">
-            Cada reporte entra en una categoría para que llegue al voluntario que sabe resolverlo.
+            Elige la categoría que mejor describe la incidencia. Así el reporte queda clasificado
+            y se prioriza según su urgencia.
           </p>
         </div>
 

@@ -1,0 +1,71 @@
+/* Botón flotante de WhatsApp: canal de reportes, abajo a la derecha.
+   Flota por encima del contenido, así que usa la sombra de los elementos
+   flotantes de la app (barra inferior y toast). */
+.wa-button {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  height: 56px;
+  padding: 0;
+  border-radius: var(--r-pill);
+  background-color: var(--primary);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(10, 10, 10, 0.18);
+  transition: background-color var(--t-hover) var(--ease-ios);
+}
+
+.wa-button:hover {
+  background-color: var(--primary-press);
+}
+
+.wa-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: var(--r-pill);
+}
+
+.wa-button__icon {
+  width: 56px;
+  height: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* La etiqueta se despliega al pasar el cursor o enfocar; en móvil queda solo el icono */
+.wa-button__label {
+  max-width: 0;
+  padding-left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 600;
+  transition: max-width 200ms var(--ease-ios), padding-left 200ms var(--ease-ios);
+}
+
+@media (hover: hover) {
+  .wa-button:hover .wa-button__label,
+  .wa-button:focus-visible .wa-button__label {
+    max-width: 220px;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wa-button {
+    right: 16px;
+    bottom: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-button__label {
+    transition: none;
+  }
+}

@@ -1,12 +1,13 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Navbar.css'
 import logo from '../assets/imagotipo/imagotipo-azul-transparente.png'
 
 const navLinks = [
-  { label: 'Cómo funciona', href: '#como-funciona' },
-  { label: 'Qué reportar', href: '#que-reportar' },
-  { label: 'Cifras', href: '#cifras' },
-  { label: 'Mapa', href: '#mapa' },
+  { label: 'Cómo funciona', href: '/#como-funciona' },
+  { label: 'Qué reportar', href: '/#que-reportar' },
+  { label: 'Cifras', href: '/#cifras' },
+  { label: 'Mapa', href: '/#mapa' },
 ]
 
 export default function Navbar() {
@@ -15,9 +16,9 @@ export default function Navbar() {
   return (
     <header className="navbar">
       <div className="navbar__inner container">
-        <a href="#" className="navbar__logo" aria-label="Reportia, inicio">
+        <Link to="/" className="navbar__logo" aria-label="Reportia, inicio">
           <img src={logo} alt="Reportia" className="navbar__logo-img" />
-        </a>
+        </Link>
 
         <button
           className="navbar__hamburger"
@@ -42,8 +43,7 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="navbar__actions">
-            <a href="#" className="btn btn-ghost navbar__signin">Iniciar sesión</a>
-            <a href="#descargar" className="btn btn-primary navbar__cta" onClick={() => setMenuOpen(false)}>
+            <a href="/#descargar" className="btn btn-primary navbar__cta" onClick={() => setMenuOpen(false)}>
               Crear cuenta
             </a>
           </div>

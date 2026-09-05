@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Footer.css'
 import logo from '../assets/imagotipo/imagotipo-blanco-transparente.png'
 
@@ -19,10 +20,10 @@ export default function Footer() {
           <h3 className="footer__heading">Producto</h3>
           <nav aria-label="Secciones">
             <ul className="footer__links">
-              <li><a href="#como-funciona" className="footer__link">Cómo funciona</a></li>
-              <li><a href="#que-reportar" className="footer__link">Qué reportar</a></li>
-              <li><a href="#cifras" className="footer__link">Cifras públicas</a></li>
-              <li><a href="#descargar" className="footer__link">Descargar la app</a></li>
+              <li><a href="/#como-funciona" className="footer__link">Cómo funciona</a></li>
+              <li><a href="/#que-reportar" className="footer__link">Qué reportar</a></li>
+              <li><a href="/#cifras" className="footer__link">Cifras públicas</a></li>
+              <li><a href="/#descargar" className="footer__link">Descargar la app</a></li>
             </ul>
           </nav>
         </div>
@@ -31,9 +32,9 @@ export default function Footer() {
           <h3 className="footer__heading">Legal</h3>
           <nav aria-label="Legal">
             <ul className="footer__links">
-              <li><a href="#" className="footer__link">Términos y condiciones</a></li>
-              <li><a href="#" className="footer__link">Política de privacidad</a></li>
-              <li><a href="#" className="footer__link">Contáctanos</a></li>
+              <li><Link to="/terminos" className="footer__link">Términos y condiciones</Link></li>
+              <li><Link to="/privacidad" className="footer__link">Política de privacidad</Link></li>
+              <li><a href="mailto:reportiaapp@gmail.com" className="footer__link" target="_blank" rel="noopener noreferrer">Contáctanos</a></li>
             </ul>
           </nav>
         </div>
