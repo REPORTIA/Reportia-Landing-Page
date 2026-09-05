@@ -1,68 +1,86 @@
-import { MapContainer, TileLayer, CircleMarker, ZoomControl } from 'react-leaflet'
+import { MapContainer, TileLayer, CircleMarker, Marker, ZoomControl } from 'react-leaflet'
+import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import './MapSection.css'
 
-// Centered on Miraflores urban area, away from the ocean
-const LIMA_CENTER = [-12.1219, -77.0100]
+// Centro urbano de Lima Metropolitana
+const LIMA_CENTER = [-12.1219, -77.01]
 
 const incidents = [
-  [-12.1100, -77.0350],
-  [-12.1080, -77.0150],
-  [-12.1220, -77.0050],
-  [-12.1160, -77.0420],
-  [-12.1300, -77.0200],
-  [-12.1050, -77.0280],
-  [-12.1330, -77.0120],
-  [-12.1380, -77.0060],
+  [-12.11, -77.035],
+  [-12.108, -77.015],
+  [-12.122, -77.005],
+  [-12.116, -77.042],
+  [-12.13, -77.02],
+  [-12.105, -77.028],
+  [-12.133, -77.012],
+  [-12.138, -77.006],
 ]
+
+// Varios reportes en pocas manzanas se agrupan en un punto numerado
+const clusters = [
+  { position: [-12.126, -77.03], count: 12 },
+]
+
+const clusterIcon = (count) =>
+  L.divIcon({
+    className: 'map-section__cluster',
+    html: `<span>${count}</span>`,
+    iconSize: [38, 38],
+    iconAnchor: [19, 19],
+  })
 
 export default function MapSection() {
   return (
-    <section className="map-section section">
+    <section id="mapa" className="map-section section">
       <div className="container">
-        <h2 className="section-title">Incidencias resueltas en Lima</h2>
-        <p className="section-subtitle">
-          Visualiza los reportes resueltos recientemente en el mapa. No se muestra información personal de los ciudadanos.
-        </p>
-      </div>
+        <div className="section-head">
+          <span className="overline">Mapa</span>
+          <h2 className="section-title">Reportes resueltos en Lima</h2>
+          <p className="section-lead">
+            Cada punto es una incidencia cerrada y verificada en Lima Metropolitana en los
+            últimos 30 días. No se muestra información personal de nadie.
+          </p>
+        </div>
 
-      <div className="map-section__map-wrapper">
-        <MapContainer
-          center={LIMA_CENTER}
-          zoom={14}
-          scrollWheelZoom={true}
-          zoomControl={false}
-          className="map-section__map"
-          attributionControl={false}
-        >
-          <ZoomControl position="bottomright" />
-          <TileLayer
-            url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-            attribution="Tiles &copy; Esri"
-          />
-          {incidents.map((pos, i) => (
-            <CircleMarker
-              key={i}
-              center={pos}
-              radius={8}
-              pathOptions={{
-                color: 'white',
-                weight: 2,
-                fillColor: '#3b82f6',
-                fillOpacity: 1,
-              }}
+        <div className="map-section__map-wrapper">
+          <MapContainer
+            center={LIMA_CENTER}
+            zoom={14}
+            scrollWheelZoom={false}
+            zoomControl={false}
+            className="map-section__map"
+            attributionControl={false}
+          >
+            <ZoomControl position="bottomright" />
+            {/* Base monocroma sin etiquetas: manzanas claras, calles en gris. El azul es la información. */}
+            <TileLayer
+              url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+              attribution="Tiles &copy; Esri"
+              maxZoom={16}
             />
-          ))}
-        </MapContainer>
+            {incidents.map((pos, i) => (
+              <CircleMarker
+                key={i}
+                center={pos}
+                radius={8}
+                pathOptions={{
+                  color: '#FFFFFF',
+                  weight: 3,
+                  fillColor: '#1D4ED8',
+                  fillOpacity: 1,
+                }}
+              />
+            ))}
+            {clusters.map((c, i) => (
+              <Marker key={`c${i}`} position={c.position} icon={clusterIcon(c.count)} interactive={false} />
+            ))}
+          </MapContainer>
 
-        <div className="map-section__chip">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-            <line x1="16" y1="2" x2="16" y2="6" />
-            <line x1="8" y1="2" x2="8" y2="6" />
-            <line x1="3" y1="10" x2="21" y2="10" />
-          </svg>
-          Últimos 30 días
+          <div className="map-section__legend">
+            <span className="chip chip--solid">Resuelto</span>
+            <span className="map-section__legend-text">Últimos 30 días</span>
+          </div>
         </div>
       </div>
     </section>

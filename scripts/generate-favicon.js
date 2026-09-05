@@ -3,29 +3,19 @@ import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+const iso = (name) => resolve(__dirname, `../src/assets/isotipo/${name}`);
+const out = (name) => resolve(__dirname, `../public/${name}`);
 
-await sharp(resolve(__dirname, '../src/assets/Reportia_Icon_Without_Bg.png'))
-  .trim()
-  .resize(64, 64, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+// Favicon: isotipo circular azul
+await sharp(iso('isotipo-azul-circular-192.png'))
+  .resize(64, 64)
   .png({ compressionLevel: 9 })
-  .toFile(resolve(__dirname, '../public/favicon.png'));
+  .toFile(out('favicon.png'));
 console.log('favicon.png generado');
 
-const logoInput = resolve(__dirname, '../src/assets/Reportia_Logo.png');
-const logoOutput = resolve(__dirname, '../src/assets/Reportia_Logo_NoBg.png');
-
-const { data, info } = await sharp(logoInput)
-  .ensureAlpha()
-  .raw()
-  .toBuffer({ resolveWithObject: true });
-
-for (let i = 0; i < data.length; i += 4) {
-  const r = data[i], g = data[i + 1], b = data[i + 2];
-  if (r > 230 && g > 230 && b > 230) data[i + 3] = 0;
-}
-
-await sharp(data, { raw: { width: info.width, height: info.height, channels: 4 } })
-  .trim()
+// Apple touch icon: cuadrado, iOS redondea las esquinas
+await sharp(iso('isotipo-azul-cuadrado-1024.png'))
+  .resize(180, 180)
   .png({ compressionLevel: 9 })
-  .toFile(logoOutput);
-console.log('Reportia_Logo_NoBg.png generado');
+  .toFile(out('apple-touch-icon.png'));
+console.log('apple-touch-icon.png generado');

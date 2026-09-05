@@ -1,84 +1,95 @@
 import './HowItWorks.css'
 
+const iconProps = {
+  width: 24,
+  height: 24,
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 1.75,
+  strokeLinecap: 'round',
+  strokeLinejoin: 'round',
+  'aria-hidden': true,
+}
+
 const steps = [
   {
-    id: 1,
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-        <line x1="16" y1="13" x2="8" y2="13" />
-        <line x1="16" y1="17" x2="8" y2="17" />
-        <polyline points="10 9 9 9 8 9" />
-      </svg>
-    ),
-<<<<<<< HEAD
-    title: 'Ciudadano crea reporte',
-    description: 'Toma una foto, describe la incidencia y envía tu reporte desde la app o la web.',
-=======
+    number: '01',
     title: 'Reporta la incidencia',
-    description: 'Toma una foto, describe el problema y envía tu reporte desde la app móvil o por Whatsapp.',
->>>>>>> main
-  },
-  {
-    id: 2,
+    description: 'Toma una foto, describe lo que ves y envía el reporte desde la app o por el chatbot de WhatsApp.',
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+      <svg {...iconProps}>
+        <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+        <circle cx="12" cy="13" r="3" />
       </svg>
     ),
-<<<<<<< HEAD
-    title: 'Voluntario toma acción',
-    description: 'Un voluntario visualiza la oferta de reporte y decide si acepta gestionarlo.',
-=======
-    title: 'Pon las manos en la cancha',
-    description: 'Un voluntario cerca de tu área tomará tu reporte.',
->>>>>>> main
   },
   {
-    id: 3,
+    number: '02',
+    title: 'Un voluntario lo acepta',
+    description: 'La red de voluntarios cerca de tu zona recibe la oferta y uno de ellos decide gestionarla.',
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-        <circle cx="8.5" cy="8.5" r="1.5" />
-        <polyline points="21 15 16 10 5 21" />
+      <svg {...iconProps}>
+        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="m16 11 2 2 4-4" />
       </svg>
     ),
-    title: 'Gestión y validación',
-    description: 'El voluntario gestiona y envía evidencia fotográfica al supervisor para su validación (acepta o rechaza).',
   },
   {
-    id: 4,
+    number: '03',
+    title: 'Gestiona y verifica',
+    description: 'El voluntario resuelve la incidencia y envía evidencia fotográfica a un supervisor, que la acepta o la rechaza.',
     icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      <svg {...iconProps}>
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <circle cx="9" cy="9" r="2" />
+        <path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21" />
       </svg>
     ),
-    title: 'Ganan puntos',
-    description: 'Si se acepta el reporte, tanto el ciudadano como el voluntario ganan puntos del sistema de ludificación.',
+  },
+  {
+    number: '04',
+    title: 'Ambos ganan puntos',
+    description: 'Si el reporte se verifica, quien reportó y quien resolvió suman puntos y suben de nivel en la comunidad.',
+    icon: (
+      <svg {...iconProps}>
+        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+        <path d="M4 22h16" />
+        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+      </svg>
+    ),
   },
 ]
 
 export default function HowItWorks() {
   return (
-    <section id="como-funciona" className="how-it-works section">
+    <section id="como-funciona" className="how-it-works section section--surface">
       <div className="container">
-        <h2 className="section-title">Cómo funciona</h2>
-        <p className="section-subtitle">Cuatro pasos simples para mejorar tu ciudad</p>
-
-        <div className="how-it-works__steps">
-          {steps.map((step, index) => (
-            <div key={step.id} className="how-it-works__step-wrapper">
-              <div className="how-it-works__step">
-                <div className="how-it-works__icon-wrapper">
-                  <div className="how-it-works__icon">{step.icon}</div>
-                </div>
-                <h3 className="how-it-works__step-title">{step.title}</h3>
-                <p className="how-it-works__step-desc">{step.description}</p>
-              </div>
-            </div>
-          ))}
+        <div className="section-head">
+          <span className="overline">Cómo funciona</span>
+          <h2 className="section-title">Del reporte a la solución en cuatro pasos</h2>
+          <p className="section-lead">
+            No hay una oficina detrás. Los vecinos reportan y otros vecinos certificados resuelven,
+            con un supervisor que verifica cada cierre.
+          </p>
         </div>
+
+        <ol className="how-it-works__steps">
+          {steps.map((step) => (
+            <li key={step.number} className="how-it-works__step">
+              <div className="how-it-works__step-top">
+                <span className="how-it-works__number t-num">{step.number}</span>
+                <span className="how-it-works__icon">{step.icon}</span>
+              </div>
+              <h3 className="how-it-works__step-title">{step.title}</h3>
+              <p className="how-it-works__step-desc">{step.description}</p>
+            </li>
+          ))}
+        </ol>
       </div>
     </section>
   )

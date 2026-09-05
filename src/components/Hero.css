@@ -1,142 +1,314 @@
 .hero {
-  background-color: var(--color-bg-subtle);
-  padding: 72px 24px 80px;
+  background-color: var(--white);
+  padding: 72px 0 80px;
   overflow: hidden;
 }
 
 .hero__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) 470px;
   align-items: center;
-  gap: 64px;
-  min-height: 480px;
+  gap: 40px;
 }
 
-/* Left content */
+/* Columna de texto */
 .hero__content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  align-items: flex-start;
 }
 
-.hero__badge {
-  display: inline-block;
-  width: fit-content;
-  font-size: 0.8125rem;
-  font-weight: 500;
-  color: var(--color-primary);
-  background-color: var(--color-primary-light);
-  border: 1px solid #bfdbfe;
-  padding: 5px 14px;
-  border-radius: var(--radius-full);
+.hero__content .overline {
+  margin-bottom: 24px;
 }
 
 .hero__title {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 56px;
+  line-height: 60px;
   font-weight: 800;
-  line-height: 1.15;
-  color: var(--color-text);
-  letter-spacing: -0.02em;
+  letter-spacing: -1.4px;
+  color: var(--black);
+  text-wrap: initial;
 }
 
-.hero__description {
-  font-size: 1rem;
-  color: var(--color-text-muted);
-  line-height: 1.7;
-  max-width: 440px;
+/* Cada frase ocupa su línea; nada de «Tu» colgando */
+.hero__line {
+  display: block;
+}
+
+.hero__lead {
+  margin-top: 24px;
+  font-size: 18px;
+  line-height: 30px;
+  font-weight: 500;
+  color: var(--ink-500);
+  max-width: 30em;
+  text-wrap: pretty;
 }
 
 .hero__actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-top: 4px;
+  margin-top: 32px;
 }
 
-/* Right visual */
+/* Aviso de SMS: se reutiliza en el cierre */
+.sms-note {
+  display: inline-flex;
+  align-items: flex-start;
+  text-align: left;
+  gap: 8px;
+  margin-top: 24px;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+  color: var(--ink-500);
+}
+
+.sms-note svg {
+  color: var(--ink-300);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Columna del teléfono: bloque de 560 px donde todo entra completo */
 .hero__visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: relative;
-}
-
-.hero__phone-wrapper {
-  position: relative;
-  width: 280px;
+  height: 560px;
 }
 
 .hero__phone {
-  width: 260px;
-  height: 520px;
-  background-color: #1a1a2e;
-  border-radius: 36px;
-  padding: 12px;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255,255,255,0.08);
-  margin: 0 auto;
-}
-
-.hero__phone-screen {
-  width: 100%;
-  height: 100%;
-  border-radius: 28px;
-  overflow: hidden;
-  background: #f0f0f0;
-}
-
-.hero__phone-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Floating resolved badge */
-.hero__badge-floating {
   position: absolute;
-  bottom: 40px;
-  right: -20px;
+  top: 0;
+  right: 0;
+  width: 292px;
+  height: 560px;
+  background-color: var(--black);
+  border-radius: 42px;
+  padding: 10px;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero__screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 33px;
+  overflow: hidden;
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__screen-top {
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: var(--color-white);
-  border-radius: var(--radius-md);
-  padding: 10px 16px;
-  box-shadow: var(--shadow-elevated);
-  white-space: nowrap;
+  padding: 22px 16px 12px;
+  border-bottom: 1px solid var(--line);
 }
 
-.hero__badge-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-full);
-  background-color: #22c55e;
-  color: white;
-  display: flex;
+.hero__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: var(--white);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
   flex-shrink: 0;
 }
 
-.hero__badge-text {
+.hero__greeting {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+  color: var(--black);
+}
+
+.hero__greeting-sub {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--ink-500);
+  margin-top: 1px;
+}
+
+.hero__list {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 10px;
+  padding: 14px;
+  overflow: hidden;
 }
 
-.hero__badge-label {
-  font-size: 0.8125rem;
+/* Tarjeta de reporte: radio 16, borde 1 px */
+.rcard {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.rcard .chip {
+  height: 22px;
+  padding: 0 9px;
+  font-size: 10px;
+}
+
+.rcard__row,
+.rcard__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.rcard__title {
+  font-size: 14px;
+  line-height: 20px;
   font-weight: 600;
-  color: var(--color-text);
+  letter-spacing: -0.1px;
+  color: var(--ink-700);
 }
 
-.hero__badge-time {
-  font-size: 0.75rem;
-  color: var(--color-text-muted);
+.rcard__sub {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--ink-500);
+}
+
+.rcard__stamp {
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 500;
+  color: var(--ink-300);
+  white-space: nowrap;
+}
+
+.hero__tabbar {
+  height: 54px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 12px;
+}
+
+.hero__tab {
+  color: var(--ink-300);
+}
+
+.hero__tab--active {
+  color: var(--primary);
+}
+
+.hero__fab {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -18px;
+}
+
+/* Capturas reales con fundido: Hero.jsx alterna la activa cada 4 s y el cruce dura 600 ms.
+   La primera pantalla está visible desde el primer fotograma, con o sin JavaScript. */
+.hero__screen--photos {
+  position: relative;
+  background: var(--white);
+}
+
+.hero__shot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* Las capturas llegan sin barras del sistema y con aire blanco arriba y abajo
+     (scripts/prepare-app-shots.js); contain sobre fondo blanco deja las esquinas limpias */
+  object-fit: contain;
+  object-position: center;
+  opacity: 0;
+  transition: opacity 600ms var(--ease-ios);
+}
+
+.hero__shot--active {
+  opacity: 1;
+}
+
+/* Oferta flotante: entera dentro del bloque */
+.hero__float {
+  position: absolute;
+  left: 0;
+  bottom: 40px;
+  width: 268px;
+  background: var(--white);
+  border: 1.5px solid var(--primary);
+  border-radius: var(--r-card);
+  padding: 14px;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.hero__float-title {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+  color: var(--ink-700);
+}
+
+.hero__float-sub {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--ink-500);
+}
+
+.hero__float-actions {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.hero__float-actions .btn {
+  flex: 1;
 }
 
 /* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 1140px) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1fr) 420px;
+  }
+
+  .hero__title {
+    font-size: 48px;
+    line-height: 54px;
+  }
+
+  .hero__float {
+    width: 240px;
+  }
+}
+
+@media (max-width: 860px) {
+  .hero {
+    padding: 56px 0 64px;
+  }
+
   .hero__inner {
     grid-template-columns: 1fr;
     gap: 48px;
@@ -147,41 +319,63 @@
     align-items: center;
   }
 
-  .hero__description {
-    max-width: 100%;
+  .hero__title {
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: -1px;
+    text-wrap: balance;
+  }
+
+  .hero__line {
+    display: inline;
+  }
+
+  .hero__line::after {
+    content: ' ';
+  }
+
+  .hero__lead {
+    font-size: 17px;
+    line-height: 28px;
   }
 
   .hero__actions {
     justify-content: center;
+    width: 100%;
   }
 
-  .hero__phone-wrapper {
-    width: 240px;
-  }
-
-  .hero__phone {
-    width: 220px;
-    height: 440px;
-  }
-
-  .hero__badge-floating {
-    right: 0;
-    bottom: -20px;
+  /* En una columna el bloque se centra y la tarjeta cuelga a la izquierda del teléfono */
+  .hero__visual {
+    width: 100%;
+    max-width: 470px;
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 480px) {
-  .hero {
-    padding: 48px 20px 64px;
+@media (max-width: 600px) {
+  .hero__actions {
+    flex-direction: column;
+  }
+
+  .hero__actions .btn {
+    width: 100%;
+  }
+
+  .hero__visual {
+    height: 600px;
   }
 
   .hero__phone {
-    width: 200px;
-    height: 400px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 260px;
+    height: 520px;
   }
 
-  .hero__badge-floating {
-    right: 10px;
-    bottom: -30px;
+  .hero__float {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 240px;
   }
 }

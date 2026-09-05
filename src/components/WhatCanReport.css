@@ -1,79 +1,110 @@
 .what-can-report {
-  background-color: var(--color-bg-subtle);
+  background-color: var(--white);
 }
 
 .what-can-report__grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
 }
 
 .what-can-report__card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 28px 16px;
-  background-color: var(--color-white);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  cursor: pointer;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
-  text-align: center;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 24px;
+  background-color: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  text-align: left;
+  transition: border-color var(--t-hover) var(--ease-ios), background-color var(--t-hover) var(--ease-ios);
 }
 
 .what-can-report__card:hover {
-  border-color: var(--color-primary);
-  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.12);
-  transform: translateY(-2px);
+  background-color: var(--surface);
 }
 
-.what-can-report__card--active {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary-light);
-  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.15);
+.what-can-report__card--active,
+.what-can-report__card--active:hover {
+  border: 1.5px solid var(--primary);
+  padding: 23.5px;
+  background-color: var(--primary-soft);
 }
 
 .what-can-report__icon {
-  width: 56px;
-  height: 56px;
-  border-radius: var(--radius-md);
-  background-color: var(--color-bg-subtle);
-  color: var(--color-primary);
-  display: flex;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-button);
+  background-color: var(--primary-soft);
+  color: var(--primary);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: background-color 0.2s;
+  margin-bottom: 16px;
+  transition: background-color var(--t-hover) var(--ease-ios), color var(--t-hover) var(--ease-ios);
 }
 
 .what-can-report__card--active .what-can-report__icon {
-  background-color: #dbeafe;
+  background-color: var(--primary);
+  color: var(--white);
 }
 
 .what-can-report__label {
-  font-size: 0.875rem;
+  font-size: 18px;
+  line-height: 26px;
   font-weight: 600;
-  color: var(--color-text);
-  line-height: 1.35;
+  letter-spacing: -0.2px;
+  color: var(--black);
+}
+
+.what-can-report__example {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--ink-500);
 }
 
 /* Responsive */
-@media (max-width: 1100px) {
+@media (max-width: 860px) {
   .what-can-report__grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
 }
 
-@media (max-width: 640px) {
-  .what-can-report__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 360px) {
+@media (max-width: 600px) {
   .what-can-report__grid {
     grid-template-columns: 1fr;
+  }
+
+  .what-can-report__card {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap: 16px;
+    padding: 16px;
+  }
+
+  .what-can-report__card--active,
+  .what-can-report__card--active:hover {
+    padding: 15.5px;
+  }
+
+  .what-can-report__icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0;
+  }
+
+  .what-can-report__label {
+    flex: 1;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .what-can-report__example {
+    flex-basis: 100%;
+    margin-top: 8px;
   }
 }

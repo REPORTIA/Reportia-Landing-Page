@@ -2,11 +2,13 @@
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
-  height: 64px;
+  height: 72px;
   display: flex;
   align-items: center;
+  background-color: var(--veil-light);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--line);
 }
 
 .navbar__inner {
@@ -14,16 +16,18 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  gap: 24px;
 }
 
 .navbar__logo {
   flex-shrink: 0;
   display: flex;
   align-items: center;
+  padding: 8px 0;
 }
 
 .navbar__logo-img {
-  height: 48px;
+  height: 30px;
   width: auto;
 }
 
@@ -38,65 +42,64 @@
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 4px;
   list-style: none;
 }
 
 .navbar__link {
-  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 12px;
+  border-radius: var(--r-pill);
+  font-size: 15px;
   font-weight: 500;
-  color: var(--color-text);
-  transition: color 0.2s;
+  color: var(--ink-500);
+  transition: background-color var(--t-hover) var(--ease-ios), color var(--t-hover) var(--ease-ios);
 }
 
 .navbar__link:hover {
-  color: var(--color-primary);
+  background-color: var(--primary-soft);
+  color: var(--primary);
 }
 
 .navbar__actions {
   display: flex;
   align-items: center;
-  gap: 20px;
-}
-
-.navbar__signin {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--color-text);
-  transition: color 0.2s;
-}
-
-.navbar__signin:hover {
-  color: var(--color-primary);
+  gap: 12px;
 }
 
 .navbar__cta {
-  font-size: 0.875rem;
-  padding: 9px 20px;
+  height: 44px;
+  padding: 0 22px;
 }
 
 /* Hamburger */
 .navbar__hamburger {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
-  padding: 8px;
-  background: none;
-  border: none;
-  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  padding: 0 11px;
+  border-radius: var(--r-button);
 }
 
 .hamburger-line {
   display: block;
   width: 22px;
   height: 2px;
-  background-color: var(--color-text);
+  background-color: var(--ink-700);
   border-radius: 2px;
-  transition: transform 0.2s ease, opacity 0.2s ease;
+  transition: transform 200ms var(--ease-ios), opacity 200ms var(--ease-ios);
 }
+.hamburger-line.open:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger-line.open:nth-child(2) { opacity: 0; }
+.hamburger-line.open:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .navbar__hamburger {
     display: flex;
   }
@@ -104,16 +107,16 @@
   .navbar__menu {
     display: none;
     position: absolute;
-    top: 64px;
+    top: 72px;
     left: 0;
     right: 0;
-    background-color: var(--color-bg);
-    border-bottom: 1px solid var(--color-border);
+    background-color: var(--white);
+    border-bottom: 1px solid var(--line);
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 0;
-    padding: 16px 24px 24px;
-    box-shadow: var(--shadow-elevated);
+    padding: 8px var(--gutter) 20px;
+    box-shadow: var(--shadow-md);
   }
 
   .navbar__menu--open {
@@ -122,40 +125,35 @@
 
   .navbar__links {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 0;
     width: 100%;
   }
 
-  .navbar__links li {
-    width: 100%;
+  .navbar__link {
+    display: flex;
+    height: 52px;
+    padding: 0;
+    border-radius: 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 16px;
+    color: var(--ink-700);
   }
 
-  .navbar__link {
-    display: block;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--color-border);
-    font-size: 1rem;
+  .navbar__link:hover {
+    background-color: transparent;
   }
 
   .navbar__actions {
     width: 100%;
     flex-direction: column;
     align-items: stretch;
-    gap: 10px;
+    gap: 12px;
     margin-top: 16px;
   }
 
   .navbar__signin {
-    text-align: center;
-    padding: 12px;
-    border: 1.5px solid var(--color-border);
-    border-radius: var(--radius-sm);
-  }
-
-  .navbar__cta {
-    justify-content: center;
-    padding: 12px;
-    font-size: 1rem;
+    border: 1.5px solid var(--line);
+    color: var(--ink-700);
   }
 }

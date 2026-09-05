@@ -1,57 +1,72 @@
 .map-section {
-  background-color: var(--color-bg);
-  padding-bottom: 0;
-}
-
-.map-section .section-subtitle {
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  background-color: var(--white);
 }
 
 .map-section__map-wrapper {
-  margin-top: 0;
-  width: 100%;
   position: relative;
+  /* Leaflet apila sus capas entre 400 y 1000; se aíslan aquí para no tapar la barra fija */
+  isolation: isolate;
+  z-index: 0;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
   overflow: hidden;
+  background: var(--white);
 }
 
 .map-section__map {
   width: 100%;
-  height: 420px;
-  border-radius: var(--radius-lg, 12px);
+  height: 400px;
+  background: var(--white);
 }
 
-/* Filter chip — positioned over the map */
-.map-section__chip {
+/* La base de Esri ya es gris claro; el filtro quita el tinte residual para quedarse en la escala de grises del sistema */
+.map-section__map .leaflet-tile-pane {
+  filter: grayscale(1) brightness(1.03);
+}
+
+/* Grupo numerado */
+.map-section__cluster {
+  background: var(--primary);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Leyenda sobre el mapa: píldora legible con velo blanco */
+.map-section__legend {
   position: absolute;
   top: 16px;
-  right: 16px;
+  left: 16px;
   z-index: 1000;
   display: flex;
   align-items: center;
-  gap: 6px;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
-  padding: 6px 14px;
-  font-size: 0.8125rem;
+  gap: 8px;
+  background-color: var(--veil-light);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  padding: 6px 14px 6px 6px;
+}
+
+.map-section__legend-text {
+  font-size: 13px;
+  line-height: 18px;
   font-weight: 500;
-  color: var(--color-text);
-  box-shadow: var(--shadow-card);
-  cursor: pointer;
-  transition: box-shadow 0.2s;
+  color: var(--ink-700);
 }
 
-.map-section__chip:hover {
-  box-shadow: var(--shadow-elevated);
-}
-
-/* Leaflet zoom controls styling */
+/* Controles de zoom con el sistema */
 .map-section__map .leaflet-control-zoom {
-  border: none;
-  box-shadow: var(--shadow-card);
-  border-radius: 8px;
+  border: 1px solid var(--line);
+  box-shadow: none;
+  border-radius: var(--r-button);
   overflow: hidden;
   margin-bottom: 16px;
   margin-right: 16px;
@@ -59,14 +74,15 @@
 
 .map-section__map .leaflet-control-zoom-in,
 .map-section__map .leaflet-control-zoom-out {
-  width: 32px !important;
-  height: 32px !important;
-  line-height: 32px !important;
-  font-size: 16px;
-  color: var(--color-text) !important;
-  background-color: var(--color-white) !important;
+  width: 44px !important;
+  height: 44px !important;
+  line-height: 44px !important;
+  font-size: 18px;
+  font-family: var(--sans);
+  color: var(--ink-700) !important;
+  background-color: var(--white) !important;
   border: none !important;
-  border-bottom: 1px solid var(--color-border) !important;
+  border-bottom: 1px solid var(--line) !important;
 }
 
 .map-section__map .leaflet-control-zoom-out {
@@ -75,11 +91,17 @@
 
 .map-section__map .leaflet-control-zoom-in:hover,
 .map-section__map .leaflet-control-zoom-out:hover {
-  background-color: #f1f5f9 !important;
+  background-color: var(--surface) !important;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .map-section__map {
-    height: 280px;
+    height: 360px;
+  }
+}
+
+@media (max-width: 600px) {
+  .map-section__map {
+    height: 300px;
   }
 }

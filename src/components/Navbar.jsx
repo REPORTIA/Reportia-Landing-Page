@@ -1,36 +1,37 @@
 import { useState } from 'react'
 import './Navbar.css'
-import logo from '../assets/Reportia_Logo-Without_Bg.png'
+import logo from '../assets/imagotipo/imagotipo-azul-transparente.png'
 
 const navLinks = [
   { label: 'Cómo funciona', href: '#como-funciona' },
   { label: 'Qué reportar', href: '#que-reportar' },
-  { label: 'Estadísticas', href: '#estadisticas' },
-  { label: 'Descargar app', href: '#descargar' },
+  { label: 'Cifras', href: '#cifras' },
+  { label: 'Mapa', href: '#mapa' },
 ]
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <nav className="navbar">
+    <header className="navbar">
       <div className="navbar__inner container">
-        <a href="#" className="navbar__logo">
+        <a href="#" className="navbar__logo" aria-label="Reportia, inicio">
           <img src={logo} alt="Reportia" className="navbar__logo-img" />
         </a>
 
         <button
           className="navbar__hamburger"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Abrir menú"
+          aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={menuOpen}
+          aria-controls="navbar-menu"
         >
           <span className={`hamburger-line ${menuOpen ? 'open' : ''}`} />
           <span className={`hamburger-line ${menuOpen ? 'open' : ''}`} />
           <span className={`hamburger-line ${menuOpen ? 'open' : ''}`} />
         </button>
 
-        <div className={`navbar__menu ${menuOpen ? 'navbar__menu--open' : ''}`}>
+        <nav id="navbar-menu" className={`navbar__menu ${menuOpen ? 'navbar__menu--open' : ''}`}>
           <ul className="navbar__links">
             {navLinks.map((link) => (
               <li key={link.href}>
@@ -41,11 +42,13 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="navbar__actions">
-            <a href="#" className="navbar__signin">Iniciar sesión</a>
-            <a href="#" className="btn-primary navbar__cta">Registrarse</a>
+            <a href="#" className="btn btn-ghost navbar__signin">Iniciar sesión</a>
+            <a href="#descargar" className="btn btn-primary navbar__cta" onClick={() => setMenuOpen(false)}>
+              Crear cuenta
+            </a>
           </div>
-        </div>
+        </nav>
       </div>
-    </nav>
+    </header>
   )
 }

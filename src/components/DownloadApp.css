@@ -1,120 +1,105 @@
+/* Cierre: la única banda azul suave de la página */
 .download-app {
-  background-color: var(--color-bg);
+  padding: 80px 0;
 }
 
 .download-app__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 64px;
-}
-
-/* Left content */
-.download-app__content {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
+  text-align: center;
 }
 
 .download-app__title {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 800;
-  color: var(--color-text);
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  max-width: 18ch;
+  font-size: 34px;
+  line-height: 42px;
+  font-weight: 700;
+  letter-spacing: -0.6px;
+  color: var(--black);
 }
 
-.download-app__description {
-  font-size: 1rem;
-  color: var(--color-text-muted);
-  line-height: 1.7;
-  max-width: 420px;
+.download-app__lead {
+  max-width: 50ch;
+  font-size: 17px;
+  line-height: 28px;
+  font-weight: 500;
+  color: var(--ink-500);
 }
 
-.download-app__buttons {
+.download-app__actions {
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 12px;
   flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.download-app .sms-note {
+  margin-top: 0;
+}
+
+.download-app__stores {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
 }
 
 .download-app__store-btn {
-  display: inline-flex;
-  align-items: center;
+  height: 48px;
+  padding: 0 18px;
   gap: 10px;
-  background-color: var(--color-navy);
-  color: var(--color-white);
-  padding: 11px 20px;
-  border-radius: var(--radius-sm);
-  transition: background-color 0.2s ease, transform 0.15s ease;
-}
-
-.download-app__store-btn:hover {
-  background-color: var(--color-primary-darker);
-  transform: translateY(-1px);
 }
 
 .download-app__store-text {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  align-items: flex-start;
 }
 
 .download-app__store-label {
-  font-size: 0.6875rem;
-  opacity: 0.8;
-  font-weight: 400;
+  font-size: 10px;
+  line-height: 13px;
+  font-weight: 500;
+  color: var(--ink-300);
 }
 
 .download-app__store-name {
-  font-size: 0.9rem;
+  font-size: 14px;
+  line-height: 18px;
   font-weight: 700;
-  letter-spacing: 0.01em;
-}
-
-/* Right phone visual */
-.download-app__visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.download-app__phone-frame {
-  border-radius: 32px;
-  border: 8px solid #1F3864;
-  background: white;
-  overflow: hidden;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.2);
-}
-
-.download-app__phone-img {
-  width: 240px;
-  aspect-ratio: 9 / 19;
-  object-fit: cover;
-  display: block;
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-  .download-app__inner {
-    grid-template-columns: 1fr;
-    gap: 48px;
-    text-align: center;
+@media (max-width: 860px) {
+  .download-app {
+    padding: 64px 0;
   }
 
-  .download-app__content {
-    align-items: center;
+  .download-app__title {
+    font-size: 26px;
+    line-height: 34px;
+    letter-spacing: -0.4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .download-app {
+    padding: 48px 0;
   }
 
-  .download-app__description {
-    max-width: 100%;
+  .download-app__actions,
+  .download-app__stores {
+    flex-direction: column;
+    width: 100%;
   }
 
-  .download-app__buttons {
-    justify-content: center;
-  }
-
-  .download-app__phone-body {
-    width: 200px;
-    height: 400px;
+  .download-app__actions .btn,
+  .download-app__stores .btn {
+    width: 100%;
   }
 }

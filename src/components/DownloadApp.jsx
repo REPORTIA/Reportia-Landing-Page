@@ -2,49 +2,50 @@ import './DownloadApp.css'
 
 export default function DownloadApp() {
   return (
-    <section id="descargar" className="download-app section">
+    <section id="descargar" className="download-app section section--soft">
       <div className="download-app__inner container">
-        {/* Left content */}
-        <div className="download-app__content">
-          <h2 className="download-app__title">
-            Descarga la app y reporta desde cualquier lugar
-          </h2>
-          <p className="download-app__description">
-            Disponible para Android e iOS. Recibe notificaciones en tiempo real
-            sobre el estado de tus reportes.
-          </p>
-          <div className="download-app__buttons">
-            <a href="#" className="download-app__store-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M3.18 23.76c.3.17.64.24.98.18l11.5-11.5-2.83-2.83L3.18 23.76zM20.67 9.53l-2.98-1.72-3.17 3.17 3.17 3.17 2.98-1.72c.85-.49.85-1.7 0-2.9zM1.05 1.06C.8 1.38.67 1.8.67 2.28v19.44c0 .48.13.9.38 1.22l.06.06L12.5 12l-.06-.06L1.05 1.06zM14.66 11.06l-11.48-11.5c-.34-.06-.68.01-.98.18l9.63 9.49 2.83-2.17z"/>
-              </svg>
-              <div className="download-app__store-text">
-                <span className="download-app__store-label">Disponible en</span>
-                <span className="download-app__store-name">Google Play</span>
-              </div>
-            </a>
+        <h2 className="download-app__title">Tu distrito de Lima tiene algo que arreglar</h2>
+        <p className="download-app__lead">
+          Crear la cuenta toma menos de un minuto y el primer reporte, tres.
+        </p>
 
-            <a href="#" className="download-app__store-btn">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-              </svg>
-              <div className="download-app__store-text">
-                <span className="download-app__store-label">Descárgalo en</span>
-                <span className="download-app__store-name">App Store</span>
-              </div>
-            </a>
-          </div>
+        <div className="download-app__actions">
+          <a href="#" className="btn btn-primary btn--lg">Crear cuenta</a>
+          <a href="#" className="btn btn-secondary btn--lg">Ya tengo cuenta</a>
         </div>
 
-        {/* Right phone visual */}
-        <div className="download-app__visual">
-          <div className="download-app__phone-frame">
-            <img
-              src="https://images.unsplash.com/photo-1629697776809-f37ceac39e77?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydHBob25lJTIwYXBwJTIwbW9ja3VwJTIwaGFuZHxlbnwxfHx8fDE3NzU1Njg0NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="App Reportia Download"
-              className="download-app__phone-img"
-            />
-          </div>
+        <p className="sms-note">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <rect x="5" y="2" width="14" height="20" rx="2" />
+            <path d="M12 18h.01" />
+          </svg>
+          Te enviaremos un código por SMS para activar tu cuenta.
+        </p>
+
+        <div className="download-app__stores">
+          <a href="#" className="btn btn-dark download-app__store-btn">
+            <svg width="18" height="20" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true">
+              <path d="M3 1.6 14.7 13 3 24.4a1.6 1.6 0 0 1-.6-1.3V2.9c0-.5.2-1 .6-1.3Z" />
+              <path d="m16.6 14.9 3.1 3-11.2 6.4 8.1-9.4Z" opacity="0.75" />
+              <path d="m16.6 11.1 3.1-3-11.2-6.4 8.1 9.4Z" opacity="0.75" />
+              <path d="m21.6 10.2 2.2 1.3c.9.5.9 1.9 0 2.4l-2.2 1.3-3.6-2.5 3.6-2.5Z" opacity="0.55" />
+            </svg>
+            <span className="download-app__store-text">
+              <span className="download-app__store-label">Disponible en</span>
+              <span className="download-app__store-name">Google Play</span>
+            </span>
+          </a>
+
+          <a href="#" className="btn btn-dark download-app__store-btn">
+            <svg width="18" height="20" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true">
+              <path d="M17.2 13.6c0-2.6 2.1-3.9 2.2-4-1.2-1.8-3.1-2-3.8-2-1.6-.2-3.1.9-3.9.9-.8 0-2.1-.9-3.4-.9-1.8 0-3.4 1-4.3 2.6-1.8 3.2-.5 7.9 1.3 10.5.9 1.3 1.9 2.7 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.5 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5.6-.9 1-1.9 1.2-2.4-2.7-1-3.3-4.5-3.3-4.8Z" />
+              <path d="M14.9 4.2c.7-.9 1.2-2.1 1-3.4-1 .1-2.3.7-3 1.6-.6.8-1.2 2-1.1 3.2 1.2.1 2.3-.6 3.1-1.4Z" />
+            </svg>
+            <span className="download-app__store-text">
+              <span className="download-app__store-label">Descárgalo en</span>
+              <span className="download-app__store-name">App Store</span>
+            </span>
+          </a>
         </div>
       </div>
     </section>
