@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './Hero.css'
+import { DEMO_MAILTO } from '../links'
 
 /*
  * Capturas reales de la app. Se cargan desde src/assets/app/ en orden alfabético
@@ -57,7 +58,7 @@ export default function Hero() {
             voluntarios certificados las resuelve. Sigue cada reporte hasta que se verifica.
           </p>
           <div className="hero__actions">
-            <a href="#descargar" className="btn btn-primary btn--lg">Crear cuenta</a>
+            <a href={DEMO_MAILTO} className="btn btn-primary btn--lg">Agendar demo</a>
             <a href="#como-funciona" className="btn btn-secondary btn--lg">Ver cómo funciona</a>
           </div>
           <p className="sms-note">

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import './Footer.css'
 import logo from '../assets/imagotipo/imagotipo-blanco-transparente.png'
+import { DEMO_MAILTO } from '../links'
 
 export default function Footer() {
   return (
@@ -23,7 +24,7 @@ export default function Footer() {
               <li><a href="/#como-funciona" className="footer__link">Cómo funciona</a></li>
               <li><a href="/#que-reportar" className="footer__link">Qué reportar</a></li>
               <li><a href="/#cifras" className="footer__link">Cifras públicas</a></li>
-              <li><a href="/#descargar" className="footer__link">Descargar la app</a></li>
+              <li><a href={DEMO_MAILTO} className="footer__link">Agendar demo</a></li>
             </ul>
           </nav>
         </div>

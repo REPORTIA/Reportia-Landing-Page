@@ -51,6 +51,12 @@
   gap: 10px;
 }
 
+/* Tiendas aún sin publicar: informativas, no interactivas. */
+.download-app__store-btn--soon {
+  opacity: 0.55;
+  cursor: default;
+}
+
 .download-app__store-text {
   display: flex;
   flex-direction: column;

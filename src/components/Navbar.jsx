@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 import logo from '../assets/imagotipo/imagotipo-azul-transparente.png'
+import { DEMO_MAILTO } from '../links'
 
 const navLinks = [
   { label: 'Cómo funciona', href: '/#como-funciona' },
@@ -43,8 +44,8 @@ export default function Navbar() {
             ))}
           </ul>
           <div className="navbar__actions">
-            <a href="/#descargar" className="btn btn-primary navbar__cta" onClick={() => setMenuOpen(false)}>
-              Crear cuenta
+            <a href={DEMO_MAILTO} className="btn btn-primary navbar__cta" onClick={() => setMenuOpen(false)}>
+              Agendar demo
             </a>
           </div>
         </nav>

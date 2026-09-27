@@ -7,6 +7,7 @@ import {
   weightedResolutionHours,
   formatHours,
 } from '../api'
+import { DEMO_MAILTO } from '../links'
 
 function useCountUp(target, duration = 1200, active = false) {
   const [count, setCount] = useState(0)
@@ -270,7 +271,7 @@ export default function Stats() {
                 : 'Las cifras se publican en cuanto un supervisor cierra el primer reporte. Sé la primera persona en abrir uno en tu distrito de Lima.'}
             </p>
             {!isError && (
-              <a href="#descargar" className="btn btn-primary">Crear el primer reporte</a>
+              <a href={DEMO_MAILTO} className="btn btn-primary">Agendar demo</a>
             )}
           </div>
         )}
